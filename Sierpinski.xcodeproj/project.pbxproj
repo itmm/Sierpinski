@@ -9,38 +9,17 @@
 /* Begin PBXBuildFile section */
 		705B9814193F13BA00BE1E1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B9813193F13BA00BE1E1A /* AppDelegate.swift */; };
 		705B9816193F13BA00BE1E1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705B9815193F13BA00BE1E1A /* Images.xcassets */; };
-		705B9822193F13BA00BE1E1A /* SierpinskiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B9821193F13BA00BE1E1A /* SierpinskiTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		705B981C193F13BA00BE1E1A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 705B9806193F13BA00BE1E1A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 705B980D193F13BA00BE1E1A;
-			remoteInfo = Sierpinski;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		705B980E193F13BA00BE1E1A /* Sierpinski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sierpinski.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		705B9812193F13BA00BE1E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		705B9813193F13BA00BE1E1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		705B9815193F13BA00BE1E1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		705B981B193F13BA00BE1E1A /* SierpinskiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SierpinskiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		705B9820193F13BA00BE1E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		705B9821193F13BA00BE1E1A /* SierpinskiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SierpinskiTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		705B980B193F13BA00BE1E1A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		705B9818193F13BA00BE1E1A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,7 +33,6 @@
 			isa = PBXGroup;
 			children = (
 				705B9810193F13BA00BE1E1A /* Sierpinski */,
-				705B981E193F13BA00BE1E1A /* SierpinskiTests */,
 				705B980F193F13BA00BE1E1A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				705B980E193F13BA00BE1E1A /* Sierpinski.app */,
-				705B981B193F13BA00BE1E1A /* SierpinskiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,23 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				705B9812193F13BA00BE1E1A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		705B981E193F13BA00BE1E1A /* SierpinskiTests */ = {
-			isa = PBXGroup;
-			children = (
-				705B9821193F13BA00BE1E1A /* SierpinskiTests.swift */,
-				705B981F193F13BA00BE1E1A /* Supporting Files */,
-			);
-			path = SierpinskiTests;
-			sourceTree = "<group>";
-		};
-		705B981F193F13BA00BE1E1A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				705B9820193F13BA00BE1E1A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -123,24 +83,6 @@
 			productReference = 705B980E193F13BA00BE1E1A /* Sierpinski.app */;
 			productType = "com.apple.product-type.application";
 		};
-		705B981A193F13BA00BE1E1A /* SierpinskiTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 705B9828193F13BA00BE1E1A /* Build configuration list for PBXNativeTarget "SierpinskiTests" */;
-			buildPhases = (
-				705B9817193F13BA00BE1E1A /* Sources */,
-				705B9818193F13BA00BE1E1A /* Frameworks */,
-				705B9819193F13BA00BE1E1A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				705B981D193F13BA00BE1E1A /* PBXTargetDependency */,
-			);
-			name = SierpinskiTests;
-			productName = SierpinskiTests;
-			productReference = 705B981B193F13BA00BE1E1A /* SierpinskiTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -152,10 +94,6 @@
 				TargetAttributes = {
 					705B980D193F13BA00BE1E1A = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					705B981A193F13BA00BE1E1A = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 705B980D193F13BA00BE1E1A;
 					};
 				};
 			};
@@ -172,7 +110,6 @@
 			projectRoot = "";
 			targets = (
 				705B980D193F13BA00BE1E1A /* Sierpinski */,
-				705B981A193F13BA00BE1E1A /* SierpinskiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,13 +120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				705B9816193F13BA00BE1E1A /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		705B9819193F13BA00BE1E1A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,23 +134,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		705B9817193F13BA00BE1E1A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				705B9822193F13BA00BE1E1A /* SierpinskiTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		705B981D193F13BA00BE1E1A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 705B980D193F13BA00BE1E1A /* Sierpinski */;
-			targetProxy = 705B981C193F13BA00BE1E1A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		705B9823193F13BA00BE1E1A /* Debug */ = {
@@ -257,7 +171,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -294,7 +207,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -324,42 +236,6 @@
 			};
 			name = Release;
 		};
-		705B9829193F13BA00BE1E1A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sierpinski.app/Sierpinski";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SierpinskiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		705B982A193F13BA00BE1E1A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sierpinski.app/Sierpinski";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SierpinskiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,14 +255,7 @@
 				705B9827193F13BA00BE1E1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		705B9828193F13BA00BE1E1A /* Build configuration list for PBXNativeTarget "SierpinskiTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				705B9829193F13BA00BE1E1A /* Debug */,
-				705B982A193F13BA00BE1E1A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

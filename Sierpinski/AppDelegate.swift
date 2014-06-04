@@ -1,49 +1,100 @@
-//
-//  AppDelegate.swift
-//  Sierpinski
-//
-//  Created by Timm Knape on 04.06.14.
-//  Copyright (c) 2014 DVAG. All rights reserved.
-//
-
 import UIKit
+import QuartzCore
+
+let birthInterval = 0.1
+let showDuration = 0.5
+let fadeDuration = 2.0
+let maxElements = 300
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class Sierpinski: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
+    var dot = UIImage(named: "Dot");
+    var playground = CGSize()
+    var position = CGPoint()
+    var fadingLayers = 0;
 
+
+// - setup
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        // Override point for customization after application launch.
-        self.window!.backgroundColor = UIColor.whiteColor()
-        self.window!.makeKeyAndVisible()
+        let w = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = w;
+        w.backgroundColor = UIColor.darkGrayColor()
+        w.makeKeyAndVisible()
+        
+        playground.width = w.bounds.width - dot.size.width
+        playground.height = w.bounds.height - dot.size.height
+        
+        sranddev()
+        
+        NSTimer.scheduledTimerWithTimeInterval(
+            birthInterval, target: self, selector: Selector("addDot"), userInfo: nil, repeats: true
+        )
+
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
+// - layer creation and fade animation
+
+    func createLayer() -> CALayer {
+        let layer = CALayer()
+        layer.frame = CGRect(x: position.x, y: position.y, width: dot.size.width, height: dot.size.height)
+        layer.contents = dot.CGImage
+        return layer;
+    }
+    
+    func animateOpacityForLayer(layer: CALayer, to: CGFloat, duration: NSTimeInterval, delegate: NSObject? = nil) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.duration = duration
+        animation.fromValue = 1 - to
+        animation.toValue = to
+        animation.fillMode = kCAFillModeBoth
+        animation.delegate = delegate
+        layer.addAnimation(animation, forKey: "opacity")
+    }
+    
+    override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
+        window!.layer.sublayers[0].removeFromSuperlayer()
+        --fadingLayers
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+// - dot placement
+
+    func updatePosition() {
+        position.x /= 2
+        position.y /= 2
+        switch random() % 3 {
+            case 0:
+                position.x += playground.width/2
+                position.y += playground.height/2
+            case 1:
+                position.y += playground.height/2
+            default:
+                position.x += playground.width/4
+        }
     }
+    
+    func addDot() {
+        self.updatePosition()
+        
+        let container = self.window!.layer;
+        var visibleLayers = (container.sublayers ? container.sublayers.count : 0) - fadingLayers;
 
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        var layer = createLayer()
+        animateOpacityForLayer(layer, to: 1, duration: showDuration)
+        container.addSublayer(layer)
+        
+        while visibleLayers > maxElements {
+            let choice = random() % visibleLayers + fadingLayers
+            let fading = container.sublayers[choice] as CALayer
+            container.insertSublayer(fading, atIndex: CUnsignedInt(fadingLayers))
+            animateOpacityForLayer(fading, to: 0, duration: fadeDuration, delegate: self)
+            ++fadingLayers
+            --visibleLayers
+        }
     }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
-
