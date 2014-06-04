@@ -20,9 +20,9 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         let w = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window = w;
         w.backgroundColor = UIColor.darkGrayColor()
         w.makeKeyAndVisible()
+        window = w;
         
         playground.width = w.bounds.width - dot.size.width
         playground.height = w.bounds.height - dot.size.height

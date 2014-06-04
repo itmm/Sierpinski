@@ -16,6 +16,9 @@
 		705B9812193F13BA00BE1E1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		705B9813193F13BA00BE1E1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		705B9815193F13BA00BE1E1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		70C38144193F684600F6BFE4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		70C38145193F685200F6BFE4 /* dot.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = dot.psd; sourceTree = "<group>"; };
+		70C38146193F685200F6BFE4 /* icon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,9 @@
 		705B9811193F13BA00BE1E1A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				70C38145193F685200F6BFE4 /* dot.psd */,
+				70C38146193F685200F6BFE4 /* icon.psd */,
+				70C38144193F684600F6BFE4 /* README.md */,
 				705B9812193F13BA00BE1E1A /* Info.plist */,
 			);
 			name = "Supporting Files";
