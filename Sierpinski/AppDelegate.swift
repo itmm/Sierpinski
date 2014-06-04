@@ -13,7 +13,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     var dot = UIImage(named: "Dot");
     var playground = CGSize()
     var position = CGPoint()
-    var fadingLayers = 0;
+    var fadingLayers = 0
 
 
 // - setup
