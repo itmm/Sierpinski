@@ -48,11 +48,15 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     
     func animateOpacityForLayer(layer: CALayer, to: CGFloat, duration: NSTimeInterval, delegate: NSObject? = nil) {
         let animation = CABasicAnimation(keyPath: "opacity")
+        animation.beginTime = 0
         animation.duration = duration
         animation.fromValue = 1 - to
         animation.toValue = to
+        animation.removedOnCompletion = false
         animation.fillMode = kCAFillModeBoth
+        animation.additive = false
         animation.delegate = delegate
+
         layer.addAnimation(animation, forKey: "opacity")
     }
     
