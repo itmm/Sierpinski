@@ -9,8 +9,8 @@ let maxElements = 300
 @UIApplicationMain
 class Sierpinski: UIResponder, UIApplicationDelegate {
                             
-    var window: UIWindow?
-    var dot = UIImage(named: "Dot");
+    @lazy var window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    @lazy var dot = UIImage(named: "Dot");
     var playground = CGSize()
     var position = CGPoint()
     var fadingLayers = 0
@@ -19,13 +19,12 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
 // - setup
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-        let w = UIWindow(frame: UIScreen.mainScreen().bounds)
-        w.backgroundColor = UIColor.darkGrayColor()
-        w.makeKeyAndVisible()
-        window = w;
+        window.backgroundColor = UIColor.darkGrayColor()
+        window.rootViewController = UIViewController()
+        window.makeKeyAndVisible()
         
-        playground.width = w.bounds.width - dot.size.width
-        playground.height = w.bounds.height - dot.size.height
+        playground.width = window.bounds.width - dot.size.width
+        playground.height = window.bounds.height - dot.size.height
         
         sranddev()
         
@@ -61,7 +60,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
-        window!.layer.sublayers[0].removeFromSuperlayer()
+        window.layer.sublayers[0].removeFromSuperlayer()
         --fadingLayers
     }
 
@@ -85,7 +84,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     func addDot() {
         self.updatePosition()
         
-        let container = self.window!.layer;
+        let container = self.window.layer;
         var visibleLayers = (container.sublayers ? container.sublayers.count : 0) - fadingLayers;
 
         var layer = createLayer()
