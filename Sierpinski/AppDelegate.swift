@@ -18,7 +18,10 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
 
 // - setup
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    func application(
+        application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: NSDictionary?
+    ) -> Bool {
         window.backgroundColor = UIColor.darkGrayColor()
         window.rootViewController = UIViewController()
         window.makeKeyAndVisible()
@@ -29,7 +32,11 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
         sranddev()
         
         NSTimer.scheduledTimerWithTimeInterval(
-            birthInterval, target: self, selector: Selector("addDot"), userInfo: nil, repeats: true
+            birthInterval,
+            target: self,
+            selector: Selector("addDot"),
+            userInfo: nil,
+            repeats: true
         )
 
         return true
@@ -40,12 +47,22 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
 
     func createLayer() -> CALayer {
         let layer = CALayer()
-        layer.frame = CGRect(x: position.x, y: position.y, width: dot.size.width, height: dot.size.height)
+        layer.frame = CGRect(
+            x: position.x,
+            y: position.y,
+            width: dot.size.width,
+            height: dot.size.height
+        )
         layer.contents = dot.CGImage
         return layer;
     }
     
-    func animateOpacityForLayer(layer: CALayer, to: CGFloat, duration: NSTimeInterval, delegate: NSObject? = nil) {
+    func animateOpacityForLayer(
+        layer: CALayer,
+        to: CGFloat,
+        duration: NSTimeInterval,
+        delegate: NSObject?
+    ) {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.beginTime = 0
         animation.duration = duration
@@ -73,7 +90,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
         switch random() % 3 {
             case 0:
                 position.x += playground.width/2
-                position.y += playground.height/2
+                fallthrough
             case 1:
                 position.y += playground.height/2
             default:
@@ -84,11 +101,16 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     func addDot() {
         self.updatePosition()
         
-        let container = self.window.layer;
-        var visibleLayers = (container.sublayers ? container.sublayers.count : 0) - fadingLayers;
+        let container = self.window.layer
+        
+        var visibleLayers = 0
+        if let sublayers = container.sublayers {
+            visibleLayers += sublayers.count
+        }
+        visibleLayers -= fadingLayers
 
         var layer = createLayer()
-        animateOpacityForLayer(layer, to: 1, duration: showDuration)
+        animateOpacityForLayer(layer, to: 1, duration: showDuration, delegate: nil)
         container.addSublayer(layer)
         
         while visibleLayers > maxElements {
