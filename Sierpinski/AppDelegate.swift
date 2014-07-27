@@ -9,8 +9,8 @@ let maxElements = 300
 @UIApplicationMain
 class Sierpinski: UIResponder, UIApplicationDelegate {
                             
-    @lazy var window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    @lazy var dot = UIImage(named: "Dot");
+    lazy var window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    lazy var dot = UIImage(named: "Dot");
     var playground = CGSize()
     var position = CGPoint()
     var fadingLayers = 0
@@ -59,7 +59,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
     
     func animateOpacityForLayer(
         layer: CALayer,
-        to: CGFloat,
+        to: Float,
         duration: NSTimeInterval,
         delegate: NSObject?
     ) {
@@ -68,9 +68,11 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
         animation.fromValue = 1 - to
         animation.toValue = to
         animation.delegate = delegate
+        animation.fillMode = kCAFillModeForwards
+        animation.additive = false
+        animation.removedOnCompletion = false
 
         layer.addAnimation(animation, forKey: "opacity")
-        layer.opacity = to
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
