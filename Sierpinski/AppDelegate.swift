@@ -64,16 +64,13 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
         delegate: NSObject?
     ) {
         let animation = CABasicAnimation(keyPath: "opacity")
-        animation.beginTime = 0
         animation.duration = duration
         animation.fromValue = 1 - to
         animation.toValue = to
-        animation.removedOnCompletion = false
-        animation.fillMode = kCAFillModeBoth
-        animation.additive = false
         animation.delegate = delegate
 
         layer.addAnimation(animation, forKey: "opacity")
+        layer.opacity = to
     }
     
     override func animationDidStop(anim: CAAnimation!, finished flag: Bool) {
