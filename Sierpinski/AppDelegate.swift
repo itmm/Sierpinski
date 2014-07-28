@@ -68,10 +68,7 @@ class Sierpinski: UIResponder, UIApplicationDelegate {
         animation.fromValue = 1 - to
         animation.toValue = to
         animation.delegate = delegate
-        animation.fillMode = kCAFillModeForwards
-        animation.additive = false
-        animation.removedOnCompletion = false
-
+        layer.opacity = to
         layer.addAnimation(animation, forKey: "opacity")
     }
     
